@@ -24,7 +24,7 @@ const Form = () => {
         initialValues: {
             title: '',
             description: '',
-            status: 'Pending', // Default to "Pending"
+            status: 'Pending', 
         },
         validationSchema: todoSchema,
         onSubmit: async (values) => {

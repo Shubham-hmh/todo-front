@@ -5,7 +5,7 @@ import { deleteTodo, getAllTodos } from "../features/todo/todoSlice";
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
-import './Table.css'; // Import custom CSS file for styling
+import './Table.css'; 
 
 const Table = () => {
     const todoState = useSelector((state) => state?.todo?.todo);
@@ -27,23 +27,21 @@ const Table = () => {
     const [searchText, setSearchText] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     
-    const [filterStatus, setFilterStatus] = useState(null); // Default filter status
-    const [sortBy, setSortBy] = useState('title'); // Default sorting column
-const [sortType, setSortType] = useState('asc'); // Default sorting type
+    const [filterStatus, setFilterStatus] = useState(null); 
+    const [sortBy, setSortBy] = useState('title'); 
+const [sortType, setSortType] = useState('asc'); 
 
     const itemsPerPage = 5;
 
     const handleSearchChange = (e) => {
         setSearchText(e.target.value);
-        setCurrentPage(1); // Reset to the first page when search text changes
+        setCurrentPage(1); 
     }
 
     const handleSort = (column) => {
         if (column === sortBy) {
-            // Toggle sorting type if clicking on the same column
             setSortType(sortType === 'asc' ? 'desc' : 'asc');
         } else {
-            // Set default sorting type if changing to a new column
             setSortType('asc');
             setSortBy(column);
         }
@@ -51,14 +49,13 @@ const [sortType, setSortType] = useState('asc'); // Default sorting type
 
     const handleFilterChange = (value) => {
         setFilterStatus(value);
-        setCurrentPage(1); // Reset to the first page when filter changes
+        setCurrentPage(1); 
     }
 
     let sortedTodos = [];
     if (Array.isArray(todoState)) {
         sortedTodos = [...todoState];
         if (sortBy) {
-            // Sorting logic based on the selected column
             sortedTodos.sort((a, b) => {
                 if (sortBy === 'title') {
                     return sortType === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
