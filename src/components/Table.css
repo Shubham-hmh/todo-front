@@ -1,0 +1,16 @@
+.table th {
+    vertical-align: middle;
+}
+
+.sort-icon {
+    margin-left: 5px;
+}
+
+.header-cell {
+    display: flex;
+    align-items: center;
+}
+
+.header-cell select {
+    margin-left: 5px;
+}
