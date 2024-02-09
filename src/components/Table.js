@@ -86,6 +86,10 @@ const [sortType, setSortType] = useState('asc');
 
     return (
         <div className="container mt-5">
+   <p className="sort-info">
+  Click Title or Creation Time for sorting <span className="star">&#9733;</span> {new Date().toLocaleTimeString()}
+</p>
+
             <div className="mb-3">
                 <input
                     type="text"
